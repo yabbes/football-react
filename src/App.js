@@ -150,7 +150,9 @@ class App extends Component {
         <p className="App-intro">
         Contents to be added
         </p>
-        <CountrySelect leagueSelect={this.state.leagueSelect} leagueSelectChangeHandle={this.leagueSelectChangeHandle}/>
+        <section>
+          <CountrySelect leagueSelect={this.state.leagueSelect} leagueSelectChangeHandle={this.leagueSelectChangeHandle}/>
+        </section>
         <Table leagueData={this.state.leagueData} teamId={this.state.teamId} onTeamClick={(e) => this.handleOnTeamClick(e)}/>
         <br />
         <Fixtures fixtures={this.state.teamFixtures} team_base_url={this.state.teamId}/>

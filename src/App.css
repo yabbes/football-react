@@ -11,7 +11,18 @@
   color: white;
   
 }
-
+.country_select {
+  padding-bottom: 15px;
+}
+.list-group-item{
+  cursor: pointer;
+}
+.list-group-item:hover{
+  background-color: #777;
+}
+.list-group-item:active{
+  background-color: #777;
+}
 .App-intro {
   font-size: large;
   

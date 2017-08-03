@@ -38,7 +38,7 @@ class CountrySelect extends Component {
 
         return (
             <div className="country_select row">
-                <div className="col-md-4">
+                <div className="col-md-8">
                     <Select
                     name="form-field-name"
                     value={this.state.leagueSelect}
