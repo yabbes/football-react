@@ -5,7 +5,7 @@ const TeamDetail = () => {
     //TODO:
 
     return (
-        <div>
+        <div className="team_detail">
             TeamDetail
         </div>
     );

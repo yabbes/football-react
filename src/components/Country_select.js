@@ -3,11 +3,11 @@ import React, { Component } from 'react'
 class CountrySelect extends Component {
     render () {
         return (
-            <div>
+            <div className="country_select">
                 Choose the Country
             </div>
         )
     }
 }
 
-export default CountrySelectChoose the Country
+export default CountrySelect;

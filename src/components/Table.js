@@ -6,7 +6,7 @@ class Table extends Component {
     }
     render () {
         return (
-            <div>
+            <div className="league_table">
                 Tabelle
             </div>
         );
