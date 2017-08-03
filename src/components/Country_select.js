@@ -17,7 +17,7 @@ class CountrySelect extends Component {
             leagueSelect: e.value,
         });
 
-        //this.props.leagueSelectChangeHandle(e);
+        this.props.leagueSelectChangeHandle(e);
         
         
         

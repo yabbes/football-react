@@ -7,7 +7,7 @@ import 'react-select/dist/react-select.css';
 import Table from './components/Table';
 import CountrySelect from './components/Country_select';
 import TeamDetail from './components/Team_detail';
-import dataMockup from './json_mockup';
+//import dataMockup from './json_mockup';
 
 
 
@@ -23,6 +23,16 @@ class App extends Component {
       teamSelect: false,
       teamId: null,
     };
+    this.urls = {
+      de: 'http://api.football-data.org/v1/competitions/452/',
+      en: 'http://api.football-data.org/v1/competitions/445/',
+      fr: 'http://api.football-data.org/v1/competitions/450/',
+      es: 'http://api.football-data.org/v1/competitions/455/',
+      it: 'http://api.football-data.org/v1/competitions/456/',
+    };
+    this.leagueSelectChangeHandle = this.leagueSelectChangeHandle.bind(this);
+    this.getLeagueData = this.getLeagueData.bind(this);
+    this.getLeagueData('de');
     
   }
   leagueSelectChangeHandle(e) {
@@ -30,16 +40,17 @@ class App extends Component {
     this.setState({
       leagueSelect: e.value,
     });
+    this.getLeagueData(e.value);
 
   }
 
   componentDidMount() {
     if (this.state.leagueData.length === 0){
-      this.getLeagueData('de');
+      //this.getLeagueData(this.state.leagueSelect);
     }
   }
   getLeagueData(country) {
-    console.log(dataMockup);
+    /*console.log(dataMockup);
     this.setState({
       leagueData: dataMockup.standing,
       leagueCaption: dataMockup.leagueCaption,
@@ -47,10 +58,30 @@ class App extends Component {
 
     });
     return;
-    /* deaktiviert für dev
-    var url = 'http://api.football-data.org/v1/soccerseasons/430/leagueTable/?matchday=1';
-    var url2 = 'http://api.football-data.org/v1/teams/66';
-
+    */
+    let base_url;
+    switch (country) {
+      case 'de':
+        base_url = this.urls.de + '/leagueTable'; 
+        console.log("ja"); 
+        break;
+      case 'en':
+        base_url = this.urls.en + '/leagueTable'; 
+        break;
+      case 'es':
+        base_url = this.urls.es + '/leagueTable';  
+        break;
+      case 'it':
+        base_url = this.urls.it + '/leagueTable';  
+        break;
+      case 'fr':
+        base_url = this.urls.fr + '/leagueTable';  
+        break;
+    
+      default:
+        break;
+    }
+    
     var myHeaders = new Headers();
     myHeaders.append("X-Auth-Token", this.API_KEY);
     myHeaders.append("Content-Type", "text/plain")
@@ -59,12 +90,21 @@ class App extends Component {
                   headers: myHeaders,
                   cache: 'default' };
 
-    fetch(url, myInit).then((res) => {
+    fetch(base_url, myInit).then((res) => {
       res.json().then(function(data) {  
-      console.log(data);  
+      console.log(data);
+      this.setState({
+        leagueData: data.standing,
+        leagueCaption: data.leagueCaption,
+        leagueMatchDay: data.matchday,
+
       });
+      
+      }.bind(this));
     });
-    */
+
+    
+    
 
   }
 
