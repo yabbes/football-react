@@ -1,14 +1,11 @@
 import React, { Component } from 'react'
 
 class Table extends Component {
-    constructor(props){
-        super(props);
-    }
-    
+
     render () {
         var team = this.props.leagueData.map((team, i) => {
             return (
-                <li key={team.teamName}>
+                <li className="list-group-item" key={team.teamName}>
                     {i+1} {team.teamName}
                 </li>
             );

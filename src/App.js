@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import 'react-select/dist/react-select.css';
 
 
 /* Import components */
@@ -17,20 +18,33 @@ class App extends Component {
     this.state = {
       leagueSelect: 'de',
       leagueData: [],
+      leagueCaption: null,
+      leagueMatchDay: null,
       teamSelect: false,
       teamId: null,
     };
     
   }
+  leagueSelectChangeHandle(e) {
+    console.log(e.value);
+    this.setState({
+      leagueSelect: e.value,
+    });
+
+  }
+
   componentDidMount() {
-    if (this.state.leagueData.length == 0){
+    if (this.state.leagueData.length === 0){
       this.getLeagueData('de');
     }
   }
   getLeagueData(country) {
     console.log(dataMockup);
     this.setState({
-      leagueData: dataMockup.standing
+      leagueData: dataMockup.standing,
+      leagueCaption: dataMockup.leagueCaption,
+      leagueMatchDay: dataMockup.matchday,
+
     });
     return;
     /* deaktiviert für dev
@@ -63,7 +77,7 @@ class App extends Component {
         <p className="App-intro">
         Contents to be added
         </p>
-        <CountrySelect />
+        <CountrySelect leagueSelect={this.state.leagueSelect} leagueSelectChangeHandle={this.leagueSelectChangeHandle}/>
         <Table leagueData={this.state.leagueData}/>
         <br />
         <TeamDetail />
