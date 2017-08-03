@@ -10,3 +10,5 @@ const TeamDetail = () => {
         </div>
     );
 }
+
+export default TeamDetail;
