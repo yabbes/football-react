@@ -7,7 +7,8 @@ import 'react-select/dist/react-select.css';
 import Table from './components/Table';
 import CountrySelect from './components/Country_select';
 import TeamDetail from './components/Team_detail';
-//import dataMockup from './json_mockup';
+import Fixtures from './components/Fixtures';
+import dataMockup from './json_mockup';
 
 
 
@@ -22,6 +23,7 @@ class App extends Component {
       leagueMatchDay: null,
       teamSelect: false,
       teamId: null,
+      teamFixtures: [],
     };
     this.urls = {
       de: 'http://api.football-data.org/v1/competitions/452/',
@@ -32,6 +34,8 @@ class App extends Component {
     };
     this.leagueSelectChangeHandle = this.leagueSelectChangeHandle.bind(this);
     this.getLeagueData = this.getLeagueData.bind(this);
+    this.getTeamFixtures = this.getTeamFixtures.bind(this);
+
     this.getLeagueData('de');
     
   }
@@ -46,11 +50,11 @@ class App extends Component {
 
   componentDidMount() {
     if (this.state.leagueData.length === 0){
-      //this.getLeagueData(this.state.leagueSelect);
+      this.getLeagueData(this.state.leagueSelect);
     }
   }
   getLeagueData(country) {
-    /*console.log(dataMockup);
+    console.log(dataMockup);
     this.setState({
       leagueData: dataMockup.standing,
       leagueCaption: dataMockup.leagueCaption,
@@ -58,7 +62,7 @@ class App extends Component {
 
     });
     return;
-    */
+    
     let base_url;
     switch (country) {
       case 'de':
@@ -102,9 +106,38 @@ class App extends Component {
       
       }.bind(this));
     });
+  }
 
+  getTeamFixtures(team_base_url) {
+    let url = team_base_url + '/fixtures';
+
+    var myHeaders = new Headers();
+    myHeaders.append("X-Auth-Token", this.API_KEY);
+    myHeaders.append("Content-Type", "text/plain")
     
-    
+    var myInit = { method: 'GET',
+                  headers: myHeaders,
+                  cache: 'default' };
+
+    fetch(url, myInit).then((res) => {
+      res.json().then(function(data) {  
+      console.log(data);
+      this.setState({
+        teamFixtures: data.fixtures
+
+      });
+      
+      }.bind(this));
+    });
+
+  }
+  handleOnTeamClick(team_base_url) {
+    console.log("handleOnTeamClick" , team_base_url);
+
+    this.setState({
+      teamId: team_base_url,
+    });
+    this.getTeamFixtures(team_base_url);
 
   }
 
@@ -118,9 +151,10 @@ class App extends Component {
         Contents to be added
         </p>
         <CountrySelect leagueSelect={this.state.leagueSelect} leagueSelectChangeHandle={this.leagueSelectChangeHandle}/>
-        <Table leagueData={this.state.leagueData}/>
+        <Table leagueData={this.state.leagueData} teamId={this.state.teamId} onTeamClick={(e) => this.handleOnTeamClick(e)}/>
         <br />
-        <TeamDetail />
+        <Fixtures fixtures={this.state.teamFixtures} team_base_url={this.state.teamId}/>
+        <TeamDetail team_base_url={this.state.teamId}/>
       </div>
     );
   }
