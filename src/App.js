@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
+
 /* Import components */
 import Table from './components/Table';
 import CountrySelect from './components/Country_select';
@@ -19,9 +20,13 @@ class App extends Component {
       teamSelect: false,
       teamId: null,
     };
-    this.getLeagueData('de');
+    
   }
-
+  componentDidMount() {
+    if (this.state.leagueData.length == 0){
+      this.getLeagueData('de');
+    }
+  }
   getLeagueData(country) {
     console.log(dataMockup);
     this.setState({
@@ -59,7 +64,7 @@ class App extends Component {
         Contents to be added
         </p>
         <CountrySelect />
-        <Table />
+        <Table leagueData={this.state.leagueData}/>
         <br />
         <TeamDetail />
       </div>
