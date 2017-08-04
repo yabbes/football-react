@@ -4,7 +4,9 @@ import React from 'react';
 
 const Fixtures = (props) =>  {
     if (props.fixtures.length === 0 ) {
-        return (<div>No team selected</div>);
+        return (<div className="col-md-4">
+            <span className="col-title">No team selected</span>
+                </div>);
     }
     // eslint-disable-next-line
     const next_fixtures = props.fixtures.map((fix, i) => {
@@ -22,9 +24,9 @@ const Fixtures = (props) =>  {
         
     });
     return (
-        <div className="col-md-8">
+        <div className="col-md-4">
             <div className="fixtures-header">
-                <p>Team's Next Fixtures</p><br />
+                <span className="col-title">Team's Next Fixtures</span><br />
             </div>
             <table className="table table-striped text-center">
                 <tbody>

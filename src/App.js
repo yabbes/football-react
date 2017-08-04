@@ -186,12 +186,16 @@ class App extends Component {
           Matchday in the league:<br/> <strong>{this.state.leagueMatchDay} </strong>
           </div>
         </div>
+        </div>
+        <div className="row">
           <br />
           <Table leagueData={this.state.leagueData} teamId={this.state.teamId} onTeamClick={(e) => this.handleOnTeamClick(e)}/>
-          <br />
+          <TeamDetail teamDetail={this.state.teamDetail}/>
+
           <Fixtures fixtures={this.state.teamFixtures} team_base_url={this.state.teamId}/>
+        
+          
         </div>
-        <TeamDetail teamDetail={this.state.teamDetail}/>
       </div>
     );
   }

@@ -4,7 +4,9 @@ const TeamDetail = (props) => {
 
     if(props.teamDetail.length === 0 || !props.teamDetail){
         return (
-            <div>No players for team </div>
+            <div className="col-md-4">
+                <span className="col-title">No players for team</span>
+                 </div>
         );
     }
 
@@ -19,7 +21,8 @@ const TeamDetail = (props) => {
     //console.log(props.teamDetail);
 
     return (
-        <div className="col-md-8 team_detail pull-right">
+        <div className="col-md-4 team_detail">
+            <span className="col-title">Players of team</span>
             <ul>
                 {player}
             </ul>

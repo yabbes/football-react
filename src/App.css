@@ -56,6 +56,14 @@ th {
   border: 1px solid #222;
 }
 
+.team_detail ul {
+    list-style: none !important;
+}
+.col-title {
+  font-family: 'Lobster', cursive;
+}
+
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
