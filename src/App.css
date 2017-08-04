@@ -30,7 +30,13 @@
 th {
     text-align: center;
 }
-
+.banner {
+  padding: 10px;
+  
+}
+.banner img {
+  border: 1px solid #222;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }

@@ -8,7 +8,8 @@ import Table from './components/Table';
 import CountrySelect from './components/Country_select';
 import TeamDetail from './components/Team_detail';
 import Fixtures from './components/Fixtures';
-import dataMockup from './json_mockup';
+import Banner from './components/Banner';
+//import dataMockup from './json_mockup';
 
 
 
@@ -147,13 +148,15 @@ class App extends Component {
         <div className="App-header">
           <h2>et bim ...le foot !</h2>
         </div>
-        <p className="App-intro">
-        Contents to be added
-        </p>
+        <div className="App-intro">
+        <Banner leagueSelect={this.state.leagueSelect}/>
+        </div>
         <section>
           <CountrySelect leagueSelect={this.state.leagueSelect} leagueSelectChangeHandle={this.leagueSelectChangeHandle}/>
         </section>
         <div className="row">
+          Matchday in the league:<br/> {this.state.leagueMatchDay}
+          <br />
           <Table leagueData={this.state.leagueData} teamId={this.state.teamId} onTeamClick={(e) => this.handleOnTeamClick(e)}/>
           <br />
           <Fixtures fixtures={this.state.teamFixtures} team_base_url={this.state.teamId}/>
