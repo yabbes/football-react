@@ -13,11 +13,8 @@
 
 
 .App-header {
-  background: #525252;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
-background: -webkit-linear-gradient(left, #3d72b4, #525252);
-background: -moz-linear-gradient(left, #3d72b4, #525252);
-background: -o-linear-gradient(left, #3d72b4, #525252);
-background: linear-gradient(to right, #3d72b4, #525252); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #525252;
+  border-radius: 17px;
   font-family: 'Sedgwick Ave', cursive;
   height: 60px;
   padding: 2px;
@@ -58,6 +55,7 @@ th {
 
 .team_detail ul {
     list-style: none !important;
+    margin-left: -50px;
 }
 .col-title {
   font-family: 'Lobster', cursive;

@@ -190,9 +190,10 @@ class App extends Component {
         <div className="row">
           <br />
           <Table leagueData={this.state.leagueData} teamId={this.state.teamId} onTeamClick={(e) => this.handleOnTeamClick(e)}/>
-          <TeamDetail teamDetail={this.state.teamDetail}/>
+          
 
           <Fixtures fixtures={this.state.teamFixtures} team_base_url={this.state.teamId}/>
+          <TeamDetail teamDetail={this.state.teamDetail}/>
         
           
         </div>

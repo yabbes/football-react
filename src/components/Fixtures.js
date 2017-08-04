@@ -4,7 +4,7 @@ import React from 'react';
 
 const Fixtures = (props) =>  {
     if (props.fixtures.length === 0 ) {
-        return (<div className="col-md-4">
+        return (<div className="col-md-8">
             <span className="col-title">No team selected</span>
                 </div>);
     }
@@ -24,7 +24,7 @@ const Fixtures = (props) =>  {
         
     });
     return (
-        <div className="col-md-4">
+        <div className="col-md-8">
             <div className="fixtures-header">
                 <span className="col-title">Team's Next Fixtures</span><br />
             </div>

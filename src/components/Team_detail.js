@@ -4,7 +4,7 @@ const TeamDetail = (props) => {
 
     if(props.teamDetail.length === 0 || !props.teamDetail){
         return (
-            <div className="col-md-4">
+            <div className="col-md-8">
                 <span className="col-title">No players for team</span>
                  </div>
         );
@@ -13,7 +13,7 @@ const TeamDetail = (props) => {
     const player = props.teamDetail.map((p) => {
         return (
             <li key={p.dateOfBirth}>
-                {p.jerseyNumber} {p.name} - {p.position}
+                {p.jerseyNumber} {p.name} - {p.position} - {p.nationality}
             </li>
         );
     })
@@ -21,7 +21,7 @@ const TeamDetail = (props) => {
     //console.log(props.teamDetail);
 
     return (
-        <div className="col-md-4 team_detail">
+        <div className="col-md-8 team_detail">
             <span className="col-title">Players of team</span>
             <ul>
                 {player}
