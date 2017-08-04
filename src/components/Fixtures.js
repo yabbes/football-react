@@ -10,7 +10,7 @@ const Fixtures = (props) =>  {
     }
     // eslint-disable-next-line
     const next_fixtures = props.fixtures.map((fix, i) => {
-        console.log("matchday", props.matchday);
+        //console.log("matchday", props.matchday);
         if ((i >= props.matchday - 1) && i < props.matchday + 5){
             let d = new Date(fix.date);
             let dmin;

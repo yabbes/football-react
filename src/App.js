@@ -44,7 +44,7 @@ class App extends Component {
     
   }
   leagueSelectChangeHandle(e) {
-    console.log(e.value);
+    //console.log(e.value);
     this.setState({
       leagueSelect: e.value,
     });
@@ -70,12 +70,10 @@ class App extends Component {
     let base_url;
     switch (country) {
       case 'de':
-        base_url = this.urls.de + '/leagueTable'; 
-        console.log("ja"); 
+        base_url = this.urls.de + '/leagueTable';  
         break;
       case 'de2':
         base_url = this.urls.de2 + '/leagueTable'; 
-        console.log("ja"); 
         break;
       case 'en':
         base_url = this.urls.en + '/leagueTable'; 
@@ -164,7 +162,7 @@ class App extends Component {
   }
 
   handleOnTeamClick(team_base_url) {
-    console.log("handleOnTeamClick" , team_base_url);
+    //console.log("handleOnTeamClick" , team_base_url);
 
     this.setState({
       teamId: team_base_url,
