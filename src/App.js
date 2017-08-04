@@ -118,7 +118,7 @@ class App extends Component {
 
   getTeamFixtures(team_base_url) {
     let url = team_base_url + '/fixtures';
-
+    
     var myHeaders = new Headers();
     myHeaders.append("X-Auth-Token", this.API_KEY);
     myHeaders.append("Content-Type", "text/plain")
@@ -197,7 +197,7 @@ class App extends Component {
           <Table leagueData={this.state.leagueData} teamId={this.state.teamId} onTeamClick={(e) => this.handleOnTeamClick(e)}/>
           
 
-          <Fixtures fixtures={this.state.teamFixtures} team_base_url={this.state.teamId}/>
+          <Fixtures fixtures={this.state.teamFixtures} matchday={this.state.leagueMatchDay} team_base_url={this.state.teamId}/>
           <TeamDetail teamDetail={this.state.teamDetail}/>
         
           
