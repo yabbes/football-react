@@ -145,7 +145,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Futbalium</h2>
+          <h2>et bim ...le foot !</h2>
         </div>
         <p className="App-intro">
         Contents to be added

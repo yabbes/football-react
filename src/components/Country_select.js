@@ -12,7 +12,9 @@ class CountrySelect extends Component {
     }
 
     onSelectChange(e) {
-        
+        if(e === null) {
+            return;
+        }
         this.setState({
             leagueSelect: e.value,
         });
@@ -30,6 +32,7 @@ class CountrySelect extends Component {
         { value: 'en', label: 'Premier League' },
         { value: 'fr', label: 'Ligue 1' },
         { value: 'es', label: 'Primera Division' },
+        { value: 'it', label: 'Serie A' },
         ];
 
 

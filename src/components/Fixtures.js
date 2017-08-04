@@ -22,7 +22,7 @@ const Fixtures = (props) =>  {
     return (
         <div className="col-md-8">
             <div className="fixtures-header">
-                <p>Next Fixtures</p><br />
+                <p>Team's Next Fixtures</p><br />
             </div>
             <table className="table table-striped text-center">
                 <tbody>
