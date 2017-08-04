@@ -10,9 +10,9 @@ const TeamDetail = (props) => {
         );
     }
 
-    const player = props.teamDetail.map((p) => {
+    const player = props.teamDetail.map((p, i) => {
         return (
-            <li key={p.dateOfBirth}>
+            <li key={p.dateOfBirth+i}>
                 {p.jerseyNumber} {p.name} - {p.position} - {p.nationality}
             </li>
         );

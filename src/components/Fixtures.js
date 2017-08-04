@@ -11,10 +11,13 @@ const Fixtures = (props) =>  {
     // eslint-disable-next-line
     const next_fixtures = props.fixtures.map((fix, i) => {
         if (i <= 5){
+            let d = new Date(fix.date);
+            let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear() + " " +
+d.getHours() + ":" + d.getMinutes();
             return (
                 <tr key={fix.date} className="fixture-item fixture-table-head">
                     
-                        <td><strong>{fix.date}</strong></td>
+                        <td><strong>{datestring}</strong></td>
                         <td>{fix.homeTeamName}</td>
                         <td>{fix.awayTeamName}</td>
                     
