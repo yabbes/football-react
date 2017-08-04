@@ -153,9 +153,11 @@ class App extends Component {
         <section>
           <CountrySelect leagueSelect={this.state.leagueSelect} leagueSelectChangeHandle={this.leagueSelectChangeHandle}/>
         </section>
-        <Table leagueData={this.state.leagueData} teamId={this.state.teamId} onTeamClick={(e) => this.handleOnTeamClick(e)}/>
-        <br />
-        <Fixtures fixtures={this.state.teamFixtures} team_base_url={this.state.teamId}/>
+        <div className="row">
+          <Table leagueData={this.state.leagueData} teamId={this.state.teamId} onTeamClick={(e) => this.handleOnTeamClick(e)}/>
+          <br />
+          <Fixtures fixtures={this.state.teamFixtures} team_base_url={this.state.teamId}/>
+        </div>
         <TeamDetail team_base_url={this.state.teamId}/>
       </div>
     );

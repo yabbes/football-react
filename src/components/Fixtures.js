@@ -19,7 +19,7 @@ const Fixtures = (props) =>  {
         
     });
     return (
-        <div>
+        <div className="col-md-8">
             <div className="fixtures-header">
                 <p>Next Fixtures</p><br />
             </div>
