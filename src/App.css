@@ -1,18 +1,36 @@
+/*
+    font-family: 'Sedgwick Ave', cursive;
+
+    font-family: 'Source Sans Pro', sans-serif;
+
+    font-family: 'Lobster', cursive;
+*/
 .App {
   text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+  
 }
 
 
 .App-header {
-  background-color: #532;
+  background: #525252;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
+background: -webkit-linear-gradient(left, #3d72b4, #525252);
+background: -moz-linear-gradient(left, #3d72b4, #525252);
+background: -o-linear-gradient(left, #3d72b4, #525252);
+background: linear-gradient(to right, #3d72b4, #525252); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: 'Sedgwick Ave', cursive;
   height: 60px;
   padding: 2px;
+  
   
   color: white;
   
 }
+
 .country_select {
   padding-bottom: 15px;
+  font-family: 'Lobster', cursive;
+  font-size: 3rem;
 }
 .list-group-item{
   cursor: pointer;

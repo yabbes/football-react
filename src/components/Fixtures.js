@@ -1,10 +1,12 @@
 import React from 'react';
 
 
+
 const Fixtures = (props) =>  {
     if (props.fixtures.length === 0 ) {
-        return <div>No team selected</div>;
+        return (<div>No team selected</div>);
     }
+    // eslint-disable-next-line
     const next_fixtures = props.fixtures.map((fix, i) => {
         if (i <= 5){
             return (
@@ -34,6 +36,8 @@ const Fixtures = (props) =>  {
                         {next_fixtures}
                 </tbody>
             </table>
+
+            
         </div>
     );
 }

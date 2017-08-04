@@ -25,6 +25,7 @@ class App extends Component {
       teamSelect: false,
       teamId: null,
       teamFixtures: [],
+      teamDetail: [],
     };
     this.urls = {
       de: 'http://api.football-data.org/v1/competitions/452/',
@@ -36,6 +37,7 @@ class App extends Component {
     this.leagueSelectChangeHandle = this.leagueSelectChangeHandle.bind(this);
     this.getLeagueData = this.getLeagueData.bind(this);
     this.getTeamFixtures = this.getTeamFixtures.bind(this);
+    this.getTeamDetail = this.getTeamDetail.bind(this);
 
     this.getLeagueData('de');
     
@@ -97,7 +99,7 @@ class App extends Component {
 
     fetch(base_url, myInit).then((res) => {
       res.json().then(function(data) {  
-      console.log(data);
+      //console.log(data);
       this.setState({
         leagueData: data.standing,
         leagueCaption: data.leagueCaption,
@@ -122,7 +124,7 @@ class App extends Component {
 
     fetch(url, myInit).then((res) => {
       res.json().then(function(data) {  
-      console.log(data);
+      //console.log(data);
       this.setState({
         teamFixtures: data.fixtures
 
@@ -132,6 +134,30 @@ class App extends Component {
     });
 
   }
+
+  getTeamDetail(team_base_url){
+    let url = team_base_url + '/players';
+
+    var myHeaders = new Headers();
+    myHeaders.append("X-Auth-Token", this.API_KEY);
+    myHeaders.append("Content-Type", "text/plain")
+    
+    var myInit = { method: 'GET',
+                  headers: myHeaders,
+                  cache: 'default' };
+
+    fetch(url, myInit).then((res) => {
+      res.json().then(function(data) {  
+      //console.log(data);
+      this.setState({
+        teamDetail: data.players
+
+      });
+      
+      }.bind(this));
+    });
+  }
+
   handleOnTeamClick(team_base_url) {
     console.log("handleOnTeamClick" , team_base_url);
 
@@ -139,7 +165,7 @@ class App extends Component {
       teamId: team_base_url,
     });
     this.getTeamFixtures(team_base_url);
-
+    this.getTeamDetail(team_base_url);
   }
 
   render() {
@@ -155,13 +181,17 @@ class App extends Component {
           <CountrySelect leagueSelect={this.state.leagueSelect} leagueSelectChangeHandle={this.leagueSelectChangeHandle}/>
         </section>
         <div className="row">
-          Matchday in the league:<br/> {this.state.leagueMatchDay}
+          <div className="row">
+          <div className="matchday col-md-4">
+          Matchday in the league:<br/> <strong>{this.state.leagueMatchDay} </strong>
+          </div>
+        </div>
           <br />
           <Table leagueData={this.state.leagueData} teamId={this.state.teamId} onTeamClick={(e) => this.handleOnTeamClick(e)}/>
           <br />
           <Fixtures fixtures={this.state.teamFixtures} team_base_url={this.state.teamId}/>
         </div>
-        <TeamDetail team_base_url={this.state.teamId}/>
+        <TeamDetail teamDetail={this.state.teamDetail}/>
       </div>
     );
   }
