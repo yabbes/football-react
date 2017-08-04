@@ -29,6 +29,7 @@ class App extends Component {
     };
     this.urls = {
       de: 'http://api.football-data.org/v1/competitions/452/',
+      de2: 'http://api.football-data.org/v1/competitions/453/',
       en: 'http://api.football-data.org/v1/competitions/445/',
       fr: 'http://api.football-data.org/v1/competitions/450/',
       es: 'http://api.football-data.org/v1/competitions/455/',
@@ -70,6 +71,10 @@ class App extends Component {
     switch (country) {
       case 'de':
         base_url = this.urls.de + '/leagueTable'; 
+        console.log("ja"); 
+        break;
+      case 'de2':
+        base_url = this.urls.de2 + '/leagueTable'; 
         console.log("ja"); 
         break;
       case 'en':

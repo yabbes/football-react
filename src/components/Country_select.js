@@ -33,6 +33,8 @@ class CountrySelect extends Component {
         { value: 'fr', label: 'Ligue 1' },
         { value: 'es', label: 'Primera Division' },
         { value: 'it', label: 'Serie A' },
+        { value: 'de2', label: '2. Bundesliga' },
+
         ];
 
 
