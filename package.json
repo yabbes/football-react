@@ -1,6 +1,7 @@
 {
   "name": "futbalium",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",

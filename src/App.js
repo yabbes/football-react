@@ -54,7 +54,7 @@ class App extends Component {
     }
   }
   getLeagueData(country) {
-    console.log(dataMockup);
+    /*console.log(dataMockup);
     this.setState({
       leagueData: dataMockup.standing,
       leagueCaption: dataMockup.leagueCaption,
@@ -62,7 +62,7 @@ class App extends Component {
 
     });
     return;
-    
+    */
     let base_url;
     switch (country) {
       case 'de':
