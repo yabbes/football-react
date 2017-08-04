@@ -9,10 +9,11 @@ const Fixtures = (props) =>  {
         if (i <= 5){
             return (
                 <tr key={fix.date} className="fixture-item fixture-table-head">
-                    <td><strong>{fix.date}</strong></td>
-                    <td>{fix.homeTeamName}</td>
-                    <td>{fix.awayTeamName}</td>
-                     
+                    
+                        <td><strong>{fix.date}</strong></td>
+                        <td>{fix.homeTeamName}</td>
+                        <td>{fix.awayTeamName}</td>
+                    
                 </tr>
             );
         }
@@ -24,12 +25,14 @@ const Fixtures = (props) =>  {
                 <p>Next Fixtures</p><br />
             </div>
             <table className="table table-striped text-center">
-                <tr>
-                    <th>Date</th>
-                    <th>Home</th>
-                    <th>Away</th>
-                </tr>
-            {next_fixtures}
+                <tbody>
+                    <tr>                 
+                        <th>Date</th>
+                        <th>Home</th>
+                        <th>Away</th>
+                    </tr>
+                        {next_fixtures}
+                </tbody>
             </table>
         </div>
     );
