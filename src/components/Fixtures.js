@@ -12,8 +12,15 @@ const Fixtures = (props) =>  {
     const next_fixtures = props.fixtures.map((fix, i) => {
         if (i <= 5){
             let d = new Date(fix.date);
+            let dmin;
+            if (d.getMinutes() === 0){
+                dmin = '00';
+            } else {
+                dmin = d.getMinutes();
+            }
+            //console.log(d.toString(), d.getMinutes());
             let datestring = d.getDate()  + "." + (d.getMonth()+1) + "." + d.getFullYear() + " " +
-d.getHours() + ":" + d.getMinutes();
+d.getHours() + ":" + dmin;
             return (
                 <tr key={fix.date} className="fixture-item fixture-table-head">
                     
