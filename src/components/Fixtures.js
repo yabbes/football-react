@@ -8,7 +8,7 @@ const Fixtures = (props) =>  {
     const next_fixtures = props.fixtures.map((fix, i) => {
         if (i <= 5){
             return (
-                <tr key={fix.date} className="fixture-item">
+                <tr key={fix.date} className="fixture-item fixture-table-head">
                     <td><strong>{fix.date}</strong></td>
                     <td>{fix.homeTeamName}</td>
                     <td>{fix.awayTeamName}</td>

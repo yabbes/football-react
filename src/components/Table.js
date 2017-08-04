@@ -8,7 +8,7 @@ class Table extends Component {
                 <li onClick={() => this.props.onTeamClick(team._links.team.href)} 
                 className="list-group-item" 
                 key={team.teamName}>
-                    {i+1} {team.teamName}
+                    <span className="pull-left">{i+1}</span> {team.teamName} <span className="pull-right"> {team.points}</span>
                 </li>
             );
             }

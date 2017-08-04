@@ -5,7 +5,7 @@ const TeamDetail = () => {
     //TODO:
 
     return (
-        <div className="team_detail">
+        <div className="col-md-8 team_detail pull-right">
             TeamDetail
         </div>
     );
