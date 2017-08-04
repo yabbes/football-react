@@ -16,8 +16,8 @@ class Table extends Component {
 
 
         return (
-            <div className="league_table">
-                <ul className="col-md-4 list-group">
+            <div className="col-md-4 league_table">
+                <ul className="list-group">
                     {team}
                 </ul>
             </div>

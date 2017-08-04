@@ -8,10 +8,12 @@ const Fixtures = (props) =>  {
     const next_fixtures = props.fixtures.map((fix, i) => {
         if (i <= 5){
             return (
-                <div key={fix.date} className="fixture-item">
-                    <strong>{fix.date}</strong>
-                    {fix.homeTeamName} - {fix.awayTeamName}
-                </div>
+                <tr key={fix.date} className="fixture-item">
+                    <td><strong>{fix.date}</strong></td>
+                    <td>{fix.homeTeamName}</td>
+                    <td>{fix.awayTeamName}</td>
+                     
+                </tr>
             );
         }
         
@@ -19,10 +21,16 @@ const Fixtures = (props) =>  {
     return (
         <div>
             <div className="fixtures-header">
-                Fixtures<br />
+                <p>Next Fixtures</p><br />
             </div>
+            <table className="table table-striped text-center">
+                <tr>
+                    <th>Date</th>
+                    <th>Home</th>
+                    <th>Away</th>
+                </tr>
             {next_fixtures}
-            
+            </table>
         </div>
     );
 }
